@@ -1,0 +1,32 @@
+.mainPage{
+    width: 100vw;
+    height: 100vh;
+}
+
+.headerHolder{
+    height: 10%;
+    width: 100%;
+    background-color: gray;
+}
+
+.content{
+    height: 80%;
+    width: 100%;
+    display: flex;
+}
+
+.playlistsHolder{
+    flex: 0 0 20%;
+    background-color: wheat;
+}
+
+.songsHolder{
+    flex: 1;
+    background-color: white;
+}
+
+.songPlayerHolder{
+    height: 10%;
+    width: 100%;
+    background-color: black;
+}

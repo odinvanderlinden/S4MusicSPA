@@ -1,3 +1,7 @@
 export function isLoggedin(){
-    return false
+    return true
+}
+
+export function getJWT(){
+    return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJSb2xlIjoiQVJUSVNUIiwic3ViIjoiNzYxMjllMTMtMDVjZS00MjIxLWJhNTMtY2UwY2VlOTUzM2U5IiwiRW1haWwiOiJhcnRpc3RAZ21haWwuY29tIiwiZXhwIjoxNTg4OTM2NzIxfQ.RLS5amf9X6xvMd9bnphPZg__KHi8MekTdOwM9y-aCLIurj6owAV-NAfHYtJTgySZwUCpsYP-ZD9j2Uz314mq5g"
 }

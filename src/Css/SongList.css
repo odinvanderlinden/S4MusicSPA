@@ -1,0 +1,20 @@
+.songItem{
+    border: 1px solid lightgray;
+    height: 50px;
+    display: flex
+}
+
+.playButtonHolder{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.songInfo{
+    flex: 4;
+}
+
+.artistInfo{
+    flex: 2;
+}
