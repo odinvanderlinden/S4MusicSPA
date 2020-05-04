@@ -1,0 +1,19 @@
+.playlistItem{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+    border:1px solid lightgrey;
+}
+
+.playlistItem:not(:first-child){
+    border-top: none;
+}
+
+.playlistItem:hover{
+    cursor: pointer;
+}
+.selected{
+    border:1px solid black;
+}

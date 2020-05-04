@@ -49,7 +49,7 @@ export default function MainPage() {
             </section>
             <section className="songPlayerHolder">
                 <AudioPlayer
-                autoPlay
+                    autoPlay
                     src={currentSong.songLink}
                     onPlay={e => console.log("onPlay")}
                 />
