@@ -4,20 +4,20 @@
 }
 
 .headerHolder{
-    height: 10%;
+    height: 7%;
     width: 100%;
     background-color: gray;
 }
 
 .content{
-    height: 80%;
+    height: 83%;
     width: 100%;
     display: flex;
 }
 
 .playlistsHolder{
-    flex: 0 0 20%;
-    background-color: wheat;
+    flex: 0 0 15%;
+    overflow-y: scroll;
 }
 
 .songsHolder{
@@ -28,5 +28,12 @@
 .songPlayerHolder{
     height: 10%;
     width: 100%;
-    background-color: black;
+    background-color: gray;
+}
+
+.playListHolderTitle{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }

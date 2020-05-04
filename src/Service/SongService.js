@@ -2,7 +2,7 @@ import Axios from "axios";
 import { server } from "./ServerConstants";
 import { getJWT } from "./AuthHelper";
 
-export function getAllSongs(){
+export async function getAllSongs(){
     return Axios.get(`${server}/song`,
     {
         headers:{

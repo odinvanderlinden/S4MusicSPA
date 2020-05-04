@@ -1,7 +1,9 @@
 .songItem{
     border: 1px solid lightgray;
     height: 50px;
-    display: flex
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .playButtonHolder{
@@ -17,4 +19,22 @@
 
 .artistInfo{
     flex: 2;
+}
+
+.playButtonHolder{
+    height: 100%;
+}
+
+.playButton{
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.playButton > path:hover{
+    fill: black;
+    cursor: pointer;
+}
+
+.playButton > path:active{
+    fill: gray;
 }
