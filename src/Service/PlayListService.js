@@ -14,3 +14,34 @@ export async function getUsersPlaylists(){
         return error.response
     })
 }
+
+export async function getPlaylistById(id){
+    return Axios.get(`${server}/playlist/${id}`,
+    {
+        headers:{
+            Authorization: `Bearer ${getJWT()}`
+        }
+    }).then(res =>{
+        return res
+    }).catch(error => {
+        return error.response
+    })
+}
+
+export async function addSongToUsersPlaylist(songId, playListId){
+    return Axios({
+        method: "POST",
+        url: `${server}/playlist/${playListId}/${songId}`,
+ 
+        headers: {
+            Authorization: `Bearer ${getJWT()}`,
+        },
+    })
+        .then((res) => {
+            return res;
+        })
+        .catch((error) => {
+            console.log(error);
+            return error.response;
+        });
+}
