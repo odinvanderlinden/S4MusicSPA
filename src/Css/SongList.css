@@ -4,13 +4,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none; 
 }
 
-.playButtonHolder{
+.songItem:not(:first-child){
+    border-top: none;
+}
+
+.songItem:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.svgHolder{
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
 .songInfo{
@@ -21,20 +35,22 @@
     flex: 2;
 }
 
-.playButtonHolder{
-    height: 100%;
-}
-
 .playButton{
     height: 1.5em;
     width: 1.5em;
 }
 
-.playButton > path:hover{
+.svgHover >path:hover{
     fill: black;
+    stroke: black;
     cursor: pointer;
 }
 
-.playButton > path:active{
+.svgHover >path:active{
     fill: gray;
+}
+
+.plusIcon{
+    height: 1.5em;
+    width: 1.5em;
 }

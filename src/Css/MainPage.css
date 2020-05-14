@@ -1,6 +1,6 @@
 .mainPage{
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
 }
 
 .headerHolder{
@@ -10,7 +10,7 @@
 }
 
 .content{
-    height: 83%;
+    height: 93%;
     width: 100%;
     display: flex;
 }
@@ -23,12 +23,6 @@
 .songsHolder{
     flex: 1;
     background-color: white;
-}
-
-.songPlayerHolder{
-    height: 10%;
-    width: 100%;
-    background-color: gray;
 }
 
 .playListHolderTitle{

@@ -1,0 +1,12 @@
+.menu-item{
+    height: 25px;
+    text-align: center;
+}
+
+.menu-item:not(:last-child){
+    border-bottom: 1px solid black;
+}
+
+.menu-item:hover{
+    background-color: lightgray;
+}

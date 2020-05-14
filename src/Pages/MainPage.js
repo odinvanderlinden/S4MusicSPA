@@ -4,10 +4,9 @@ import SongList from '../Components/SongList'
 import { getAllSongs } from '../Service/SongService';
 import { getUsersPlaylists } from '../Service/PlayListService'
 import PlaylistsComponent from '../Components/PlaylistList';
-import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
-export default function MainPage() {
+function MainPage(props) {
 
     useEffect(() => {
         getAllSongs().then(res => {
@@ -22,18 +21,7 @@ export default function MainPage() {
         })
     }, []);
     const [songs, setSongs] = useState(null)
-    const [currentSong, setCurrentSong] = useState({})
     const [playlists, setPlaylists] = useState(null)
-    const [selectedPlaylist, setSelectedPlaylist] = useState({})
-
-    function playListCallback(playlist) {
-        setSelectedPlaylist(playlist)
-        setSongs(playlist.songs)
-    }
-
-    function playSong(song){
-        setCurrentSong(song.song)
-    }
 
     return (
         <div className="mainPage">
@@ -41,19 +29,14 @@ export default function MainPage() {
             <section className="content">
                 <div className="playlistsHolder">
                     <div className="playListHolderTitle"><p>Playlists</p></div>
-                    <PlaylistsComponent playLists={playlists} selectedPlaylist={selectedPlaylist} setPlaylist={playListCallback} />
+                    <PlaylistsComponent playLists={playlists}/>
                 </div>
                 <div className="songsHolder">
-                    <SongList songs={songs} playSongCallBack={playSong}/>
+                    <SongList songs={songs} playLists={playlists}/>
                 </div>
-            </section>
-            <section className="songPlayerHolder">
-                <AudioPlayer
-                    autoPlay
-                    src={currentSong.songLink}
-                    onPlay={e => console.log("onPlay")}
-                />
             </section>
         </div>
     )
 }
+
+export const MainPageMemo = React.memo(MainPage);
