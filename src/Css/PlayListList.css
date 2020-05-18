@@ -18,3 +18,44 @@
 .selected{
     border:1px solid black !important;
 }
+
+.playListHolderTitle, .newPlayListButton{
+    text-align: center;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid lightgray;
+}
+
+.newPlayListButton{
+    width: 100%;
+}
+.newPlayListButton:hover{
+    cursor: pointer;
+}
+
+.newPlayListButton:focus{
+    outline: none;
+}
+
+.newPlayListButton:active{
+    background-color: lightgray;
+    border: 1px solid lightgray;
+}
+
+.newPlayListPopup p{
+    font-size: 2rem;
+    text-align: center;
+}
+.newPlayListPopup{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.item{
+    margin: 5px;
+}
