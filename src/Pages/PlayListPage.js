@@ -27,7 +27,7 @@ export default function PlayListPage() {
                 <Header/>
                 <section className="content">
                     <div className="playlistsHolder">
-                        <PlaylistsComponent playLists={playlists} />
+                        <PlaylistsComponent playLists={playlists} currentPlayListId={params.id}/>
                     </div>
                     <div className="songsHolder">
                         <SongList songs={songs} playLists={playlists} />

@@ -1,5 +1,36 @@
 .headerHolder{
-    height: 7%;
+    height: 6%;
     width: 100%;
     background-color: gray;
+}
+
+.navItem{
+    height: 100%;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navItem:not(:first-child){
+    border-left: 0.5px solid gray;
+}
+
+.navigation{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 100%;
+    background-color: gray;
+    width: fit-content;
+}
+
+.navigation a{
+    padding: 5px 5px;
+    text-decoration: none;
+    color:white;
+}
+
+.navItem:hover{
+    background-color: darkgray
 }

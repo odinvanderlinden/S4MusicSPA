@@ -6,7 +6,7 @@ import { newPlayList } from '../Service/PlayListService';
 
 export default function PlaylistsComponent(props) {
 
-    const [playListItems, setPlayListItems] = useState([{}])
+    const [playListItems, setPlayListItems] = useState([])
     const [openPopup, setopenPopup] = useState(false)
     const [newPlayListName, setnewPlayListName] = useState("")
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function PlaylistsComponent(props) {
     let playLists = null;
     playLists = playListItems.map(item => {
         return (
-            <div key={item.id} className={"playlistItem"} onClick={() => history.push(`/playlist/${item.id}`)}>
+            <div key={item.id} className={`playlistItem ${item.id === props.currentPlayListId ? "selectedPlayList": ""}`} onClick={() => history.push(`/playlist/${item.id}`)}>
                 <div className="playListName">{item.name}</div>
             </div>
         )
