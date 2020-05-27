@@ -34,15 +34,12 @@ body {
     opacity: 0.8;
   }
   
-  input[id="email"],
-  input[id="password"] {
+  .input {
     width: 80%;
     padding: 12px 20px;
     margin: 8px auto;
     display: table;
     border: 1px solid #ccc;
-    /* display: inline-block; */
-    /* box-sizing: border-box; */
   }
   .message{
     width: inherit;

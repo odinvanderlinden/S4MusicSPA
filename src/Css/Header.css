@@ -6,7 +6,7 @@
 
 .navItem{
     height: 100%;
-    width: 80px;
+    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,21 +16,26 @@
     border-left: 0.5px solid gray;
 }
 
+.logout{
+    float: right;
+}
+
 .navigation{
+    float: left;
     display: flex;
-    justify-content: left;
     align-items: center;
     height: 100%;
     background-color: gray;
     width: fit-content;
 }
 
-.navigation a{
+.navItem a{
     padding: 5px 5px;
     text-decoration: none;
     color:white;
 }
 
 .navItem:hover{
-    background-color: darkgray
+    background-color: darkgray;
+    cursor: pointer;
 }

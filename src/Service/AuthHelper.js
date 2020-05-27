@@ -16,6 +16,7 @@ export function login(data){
 export function logout() {
     window.sessionStorage.removeItem("token");
     window.sessionStorage.removeItem("Id");
+    window.location.reload(false);
 }
 
 export function parseJwt(token) {

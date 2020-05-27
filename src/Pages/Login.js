@@ -30,12 +30,14 @@ export default function Login() {
           <div className="form-container">
             <form className="data-form" onSubmit={handleSubmit}>
               <input
-                type="text"
+                className="input"
+                type="email"
                 placeholder="email"
                 id="email"
                 onChange={e => setEmail(e.target.value)}
               />
               <input
+              className="input"
                 type="password"
                 placeholder="password"
                 id="password"
@@ -49,7 +51,7 @@ export default function Login() {
                 login
               </button>
               <p className="message">
-                Not registered? <Link href="/register">Create an account</Link>
+                Not registered? <Link to="/register">Create an account</Link>
               </p>
             </form>
           </div>
