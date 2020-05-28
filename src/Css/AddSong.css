@@ -1,0 +1,26 @@
+.addSongForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.formItem{
+    flex: 1;
+    margin-top: 20px;
+    width: 200px;
+}
+
+.formItem > input{
+    width: 100%;
+}
+
+.addSongFormHolder h1{
+    text-align: center;
+}
+
+.loadingGif{
+    height: 100px;
+    width: 100px;
+}
