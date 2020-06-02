@@ -3,6 +3,8 @@ import { getPlaylistById, getUsersPlaylists } from '../Service/PlayListService';
 import { useParams } from 'react-router-dom';
 import PlaylistsComponent from '../Components/PlaylistList';
 import SongList from '../Components/SongList';
+import Header from '../Components/Header';
+import '../Css/PlayListPage.css'
 
 export default function PlayListPage() {
     let params = useParams()
@@ -21,19 +23,16 @@ export default function PlayListPage() {
     const [playlists, setPlaylists] = useState(null)
     const [songs, setSongs] = useState(null)
     return (
-        <div>
-            <div className="mainPage">
-                <header className="headerHolder"></header>
+            <div className="playListPage">
+                <Header/>
                 <section className="content">
                     <div className="playlistsHolder">
-                        <div className="playListHolderTitle"><p>Playlists</p></div>
-                        <PlaylistsComponent playLists={playlists} />
+                        <PlaylistsComponent playLists={playlists} currentPlayListId={params.id}/>
                     </div>
                     <div className="songsHolder">
                         <SongList songs={songs} playLists={playlists} />
                     </div>
                 </section>
             </div>
-        </div>
     )
 }

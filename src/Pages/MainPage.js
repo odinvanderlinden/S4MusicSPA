@@ -5,6 +5,7 @@ import { getAllSongs } from '../Service/SongService';
 import { getUsersPlaylists } from '../Service/PlayListService'
 import PlaylistsComponent from '../Components/PlaylistList';
 import 'react-h5-audio-player/lib/styles.css';
+import Header from '../Components/Header';
 
 function MainPage(props) {
 
@@ -25,10 +26,9 @@ function MainPage(props) {
 
     return (
         <div className="mainPage">
-            <header className="headerHolder"></header>
+            <Header/>
             <section className="content">
                 <div className="playlistsHolder">
-                    <div className="playListHolderTitle"><p>Playlists</p></div>
                     <PlaylistsComponent playLists={playlists}/>
                 </div>
                 <div className="songsHolder">

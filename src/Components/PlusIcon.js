@@ -5,6 +5,7 @@ import { addSongToUsersPlaylist } from '../Service/PlayListService'
 
 export default function PlusIcon(props) {
 
+
     function addSongToPlaylist(playListId){
         addSongToUsersPlaylist(props.songId, playListId)
     }
@@ -20,10 +21,9 @@ export default function PlusIcon(props) {
                     <path fill="white" stroke="white" d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" />
                 </svg>
             }
-            position="right top"
-            on="click"
+            position="right center"
+            on="hover"
             closeOnDocumentClick
-            contentStyle={{ padding: "0px", border: "none" }}
             arrow={false}
         >
             <div className="menu">

@@ -45,3 +45,19 @@ export async function addSongToUsersPlaylist(songId, playListId){
             return error.response;
         });
 }
+
+export async function newPlayList(name){
+    return Axios.post(`${server}/playlist`,
+    {
+        playListName: name
+    },
+    {
+        headers:{
+            Authorization: `Bearer ${getJWT()}`
+        },
+    }).then(res =>{
+        return res
+    }).catch(error => {
+        return error.response
+    })
+}

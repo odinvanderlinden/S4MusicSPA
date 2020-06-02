@@ -1,10 +1,15 @@
 import React, { useContext} from 'react'
 import AudioPlayer from 'react-h5-audio-player'
 import { MusicPlayerContext } from '../Contexts/SongContexts';
+import '../Css/SongPlayer.css'
 
 export default function SongPlayer() {
 
     const [state, setState] = useContext(MusicPlayerContext);
+    let songName = "..."
+    if(state.songs[state.index].song.songName){
+        songName = state.songs[state.index].song.songName
+    }
     
 
     function nextSong(){
@@ -19,10 +24,10 @@ export default function SongPlayer() {
     }
     return (
             <section className="songPlayerHolder">
+                <div className="songPlayerSongName">{songName}</div>
                 <AudioPlayer
                     autoPlay
                     src={state.songs[state.index].song.songLink}
-                    onPlay={e => console.log("onPlay")}
                     onEnded={() => nextSong()}
                 />
             </section>

@@ -1,7 +1,30 @@
 export function isLoggedin(){
-    return true
+    return window.sessionStorage.getItem("token")
 }
 
 export function getJWT(){
-    return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJSb2xlIjoiQVJUSVNUIiwic3ViIjoiMzE4ODg2ODktMjA4ZS00Yjg5LWFhNTYtMjRlMDgxMzE2ZDQ3IiwiRW1haWwiOiJhcnRpc3RAZ21haWwuY29tIiwiZXhwIjoxNTkwMDY2MTc5fQ.SM-YbUviEJWWXV5dfwcx4UmR_vd0dDLILVmws__Y47HgsKO8r52oKSoj_Hw0ND8fQsoWNStgwp_FkzUuu94jwg"
+    return window.sessionStorage.getItem("token")
 }
+
+export function login(data){
+    logout()
+    let tokenData = parseJwt(data)
+    window.sessionStorage.setItem("token", data)
+    window.sessionStorage.setItem("role", tokenData.Role)
+}
+
+export function logout() {
+    window.sessionStorage.removeItem("token");
+    window.sessionStorage.removeItem("Id");
+    window.location.reload(false);
+}
+
+export function parseJwt(token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    return JSON.parse(jsonPayload);
+};
+
