@@ -24,3 +24,10 @@
     height: 100px;
     width: 100px;
 }
+
+.submitNewSongBtnHolder{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

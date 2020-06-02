@@ -49,7 +49,7 @@ export default function PlaylistsComponent(props) {
                     </div>
                 </div>
             </Popup>
-            <button className="newPlayListButton" onClick={() => setopenPopup(true)}>New Playlist</button>
+            <button className="newPlayListButton" onClick={() => setopenPopup(true)}><div>New Playlist</div></button>
             <div className="playListHolderTitle"><div>Playlists</div></div>
             {playLists}
         </div>

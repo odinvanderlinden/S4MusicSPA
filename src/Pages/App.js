@@ -19,7 +19,6 @@ function App() {
   }
   return (
     <MusicPlayerProvider>
-    <div>
       <BrowserRouter>
           <Switch>
             <PrivateRoute path="/" component={MainPageMemo} exact></PrivateRoute>
@@ -29,7 +28,6 @@ function App() {
           </Switch>
       </BrowserRouter>
       {musicPlayer}
-    </div>
     </MusicPlayerProvider>
   );
 }

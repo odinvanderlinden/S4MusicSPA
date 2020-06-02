@@ -4,7 +4,7 @@ import { Multiselect } from 'multiselect-react-dropdown';
 import '../Css/AddSong.css'
 import { getAllCategorys } from '../Service/CategorysService';
 import { getAllArtists } from '../Service/ArtistService';
-import {uploadSong} from '../Service/SongService'
+import { uploadSong } from '../Service/SongService'
 import logo from '../../src/loadingGif.gif'
 
 export default function AddSong() {
@@ -22,13 +22,11 @@ export default function AddSong() {
         })
     }, [])
 
-    function submitSong(){
+    function submitSong() {
         setShowLoading(true)
-        debugger
-        uploadSong(songName, file, selectedCategorys, selectedArtists).then(res =>{
-            setShowLoading(false)
-            if(res.status === 200){
-                
+        uploadSong(songName, file, selectedCategorys, selectedArtists).then(res => {
+            if (res.status === 200) {
+                setShowLoading(false)
             }
         })
     }
@@ -57,7 +55,6 @@ export default function AddSong() {
     }
 
     function onRemoveArtist(selectedList, removedItem) {
-        debugger
         const index = selectedArtists.indexOf(removedItem.id)
         const newList = selectedArtists;
         newList.splice(index, 1);
@@ -68,8 +65,7 @@ export default function AddSong() {
         setFile(e.target.files[0]);
     }
 
-    function validateForm(){
-        debugger
+    function validateForm() {
         return songName !== "" && file && selectedCategorys
     }
 
@@ -90,7 +86,7 @@ export default function AddSong() {
                                 type="text"
                                 placeholder="Song Name"
                                 id="songName"
-                                onChange={e=> (setSongName(e.target.value))} />
+                                onChange={e => (setSongName(e.target.value))} />
                         </div>
                         <div className="formItem">
                             <label >Song</label>
@@ -113,14 +109,16 @@ export default function AddSong() {
                             <Multiselect
                                 options={artists}
                                 displayValue="artistName"
-                                placeholder="Artists"
+                                placeholder="Collaborating Artists"
                                 onSelect={onSelectArtist}
                                 onRemove={onRemoveArtist}
                             />
                         </div>
                         <img className="loadingGif" src={logo} hidden={!showLoading}/>
                     </form>
-                    <button onClick={() => submitSong()} disabled={validateForm}>Add Song</button>
+                    <div className="submitNewSongBtnHolder">
+                        <button className="submitNewSongBtn" onClick={() => submitSong()} disabled={!validateForm()}>Add Song</button>
+                    </div>
                 </div>
             </Popup>
         </div>

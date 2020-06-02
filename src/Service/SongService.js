@@ -22,7 +22,8 @@ export async function uploadSong(songName, songFile, categorys, artists){
     data.append("songName", songName);
     data.append("artist", artists);
     data.append("category", categorys);
-    Axios({
+    debugger
+    return Axios({
         url: `http://localhost:9999/song/`,
         method: 'POST',
         data: data,
@@ -30,9 +31,10 @@ export async function uploadSong(songName, songFile, categorys, artists){
             Authorization: `Bearer ${getJWT()}`
         }
         }).then(res =>{
-
+            debugger
             return res
         }).catch(error => {
+            debugger
             return error.response
         })
 }
