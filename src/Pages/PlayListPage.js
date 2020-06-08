@@ -12,6 +12,7 @@ export default function PlayListPage() {
         getPlaylistById(params.id).then(res => {
             if (res.status === 200) {
                 setSongs(res.data.songs)
+                setPlayListName(res.data.name)
             }
         });
         getUsersPlaylists().then(res=> {
@@ -20,6 +21,7 @@ export default function PlayListPage() {
             }
         });
     }, [params.id]);
+    const [playListName, setPlayListName] = useState("")
     const [playlists, setPlaylists] = useState(null)
     const [songs, setSongs] = useState(null)
     return (
@@ -30,6 +32,7 @@ export default function PlayListPage() {
                         <PlaylistsComponent playLists={playlists} currentPlayListId={params.id}/>
                     </div>
                     <div className="songsHolder">
+                        <div className="playListName">{playListName}</div>
                         <SongList songs={songs} playLists={playlists} />
                     </div>
                 </section>

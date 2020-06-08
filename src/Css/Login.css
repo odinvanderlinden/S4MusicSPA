@@ -51,4 +51,8 @@ body {
       text-decoration: none;
       color: #DE9151;
   }
+  .error{
+    text-align: center;
+    color: red;
+  }
   

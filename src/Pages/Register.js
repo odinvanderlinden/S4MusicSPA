@@ -12,14 +12,21 @@ export default function Register() {
     const [confirmPassword, setConfirmPassword] = useState("")
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
-    const handleSubmit = event => {
-        event.preventDefault();
-        registerUser(email, password, firstName, lastName).then(res => {
-            if (res.status === 200) {
-                login(res.data)
-                window.location.reload(false);
-            }
-        })
+    const [showError, setShowError] = useState(false)
+    const register = () => {
+        debugger
+        if(validateForm){
+            registerUser(email, password, firstName, lastName).then(res => {
+                if (res.status === 200) {
+                    login(res.data)
+                    window.location.reload(false);
+                }else if(res.status === 400){
+                    setShowError(true)
+                }
+            })
+        }else{
+            setShowError(true)
+        }
     };
 
     const validateForm = () => {
@@ -33,12 +40,11 @@ export default function Register() {
         );
     }
 
-
     return (
         <div className="page">
             <div className="data-page">
                 <div className="form-container">
-                    <form className="data-form" onSubmit={handleSubmit}>
+                    <form className="data-form">
                         <input
                             className="input"
                             type="email"
@@ -69,17 +75,18 @@ export default function Register() {
                             placeholder="Confirm password"
                             onChange={e => setConfirmPassword(e.target.value)}
                         />
-                        <button
-                            className="btnSubmit"
-                            type="submit"
-                            disabled={() => !validateForm}
-                        >
-                            Register
-                        </button>
                         <p className="message">
                             Already registered? <Link to="/Login">Log in</Link>
                         </p>
                     </form>
+                    <button
+                            className="btnSubmit"
+                            type="submit"
+                            onClick={() => register()}
+                        >
+                            Register
+                    </button>
+                    <div className="error" hidden={!showError}>Fill everything in</div>
                 </div>
             </div>
         </div>

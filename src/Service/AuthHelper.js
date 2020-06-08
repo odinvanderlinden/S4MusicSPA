@@ -7,8 +7,10 @@ export function getJWT(){
 }
 
 export function login(data){
+    debugger
     logout()
     let tokenData = parseJwt(data)
+    debugger
     window.sessionStorage.setItem("token", data)
     window.sessionStorage.setItem("role", tokenData.Role)
 }

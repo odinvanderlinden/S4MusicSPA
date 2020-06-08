@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import "../Css/PlayListList.css"
 import { useHistory } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import { newPlayList } from '../Service/PlayListService';
+import { PlayListContext } from '../Contexts/PlayListsContexts';
 
 export default function PlaylistsComponent(props) {
 
-    const [playListItems, setPlayListItems] = useState([])
+    const [playListItems, setPlayListItems] = useContext(PlayListContext);
     const [openPopup, setopenPopup] = useState(false)
     const [newPlayListName, setnewPlayListName] = useState("")
     useEffect(() => {
-        if (props.playLists) {
-            setPlayListItems(props.playLists)
+        if (playListItems) {
+            setPlayListItems(playListItems)
         }
-    }, [props.playLists])
+    }, [playListItems])
     let history = useHistory()
     let playLists = null;
     playLists = playListItems.map(item => {

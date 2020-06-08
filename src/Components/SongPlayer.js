@@ -2,6 +2,7 @@ import React, { useContext} from 'react'
 import AudioPlayer from 'react-h5-audio-player'
 import { MusicPlayerContext } from '../Contexts/SongContexts';
 import '../Css/SongPlayer.css'
+import { addSongStream } from '../Service/SongService';
 
 export default function SongPlayer() {
 
@@ -13,7 +14,7 @@ export default function SongPlayer() {
     
 
     function nextSong(){
-        debugger
+        addSongStream(state.songs[state.index].song.id)
         let maxIndex = state.songs.length;
         let newIndex = state.index + 1;
         if(state.index +1 === maxIndex){

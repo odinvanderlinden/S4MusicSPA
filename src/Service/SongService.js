@@ -16,6 +16,20 @@ export async function getAllSongs(){
     })
 }
 
+export async function addSongStream(id){
+    return Axios({
+        url: `${server}/song/${id}`,
+        method: 'POST',
+        headers:{
+            Authorization: `Bearer ${getJWT()}`
+        }
+        }).then(res =>{
+            return res
+        }).catch(error => {
+            return error.response
+        })
+}
+
 export async function uploadSong(songName, songFile, categorys, artists){
     const data = new FormData();
     data.append("song", songFile);
@@ -24,17 +38,15 @@ export async function uploadSong(songName, songFile, categorys, artists){
     data.append("category", categorys);
     debugger
     return Axios({
-        url: `http://localhost:9999/song/`,
+        url: `${server}/song/`,
         method: 'POST',
         data: data,
         headers:{
             Authorization: `Bearer ${getJWT()}`
         }
         }).then(res =>{
-            debugger
             return res
         }).catch(error => {
-            debugger
             return error.response
         })
 }

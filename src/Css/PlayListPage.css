@@ -1,6 +1,6 @@
 .playListPage{
     width: 100vw;
-    height: 85vh;
+    height: 83%;
 }
 
 .content{
@@ -24,4 +24,11 @@
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+.playListName{
+    height: 30px;
+    padding-top: 10px;
+    width: 100%;
+    text-align: center;
 }

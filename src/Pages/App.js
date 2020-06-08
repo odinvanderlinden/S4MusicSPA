@@ -10,6 +10,8 @@ import { MusicPlayerProvider } from '../Contexts/SongContexts'
 import PlayListPage from './PlayListPage';
 import Login from './Login';
 import Register from './Register';
+import PlaylistsComponent from '../Components/PlaylistList';
+import { PlayListProvider } from '../Contexts/PlayListsContexts';
 
 function App() {
 
@@ -17,8 +19,10 @@ function App() {
   if (isLoggedin()) {
     musicPlayer = <SongPlayer/>
   }
+  
   return (
-    <MusicPlayerProvider>
+    <PlayListProvider>
+      <MusicPlayerProvider>
       <BrowserRouter>
           <Switch>
             <PrivateRoute path="/" component={MainPageMemo} exact></PrivateRoute>
@@ -29,6 +33,7 @@ function App() {
       </BrowserRouter>
       {musicPlayer}
     </MusicPlayerProvider>
+    </PlayListProvider>
   );
 }
 

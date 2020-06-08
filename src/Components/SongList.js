@@ -38,13 +38,13 @@ export default function SongList(props) {
 }
 
 function appendArtist(artist){
+    let returnString = artist[0].artistName;
     if(artist && artist.length){
-        let string = artist[0].artistName;
     artist.forEach((element, index) => {
         if(index !== 0){
-            string.concat(string, ", ", element.artistName)
+            returnString = returnString + ", " + element.artistName
         }
     });
-    return string
     }
+    return returnString
 }

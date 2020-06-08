@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import "../Css/MainPage.css"
 import SongList from '../Components/SongList'
 import { getAllSongs } from '../Service/SongService';
@@ -6,6 +6,7 @@ import { getUsersPlaylists } from '../Service/PlayListService'
 import PlaylistsComponent from '../Components/PlaylistList';
 import 'react-h5-audio-player/lib/styles.css';
 import Header from '../Components/Header';
+import { PlayListContext } from '../Contexts/PlayListsContexts';
 
 function MainPage(props) {
 
@@ -17,22 +18,22 @@ function MainPage(props) {
         })
         getUsersPlaylists().then(res => {
             if (res.status === 200) {
-                setPlaylists(res.data)
+                setPlayListContext(res.data)
             }
         })
     }, []);
+    const [playListContext, setPlayListContext] = useContext(PlayListContext);
     const [songs, setSongs] = useState(null)
-    const [playlists, setPlaylists] = useState(null)
 
     return (
         <div className="mainPage">
             <Header/>
             <section className="content">
                 <div className="playlistsHolder">
-                    <PlaylistsComponent playLists={playlists}/>
+                    <PlaylistsComponent/>
                 </div>
                 <div className="songsHolder">
-                    <SongList songs={songs} playLists={playlists}/>
+                    <SongList songs={songs} playLists={playListContext}/>
                 </div>
             </section>
         </div>
