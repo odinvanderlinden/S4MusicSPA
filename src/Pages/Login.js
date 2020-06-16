@@ -19,7 +19,6 @@ export default function Login() {
       if(validateForm()){
         loginUser(email, password).then(res =>{
           if(res.status === 200){
-            debugger
             login(res.data)
             window.location.reload(false);
           }else if(res.status === 403){

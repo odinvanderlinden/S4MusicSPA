@@ -7,7 +7,6 @@ export function getJWT(){
 }
 
 export function login(data){
-    debugger
     logout()
     let tokenData = parseJwt(data)
     debugger

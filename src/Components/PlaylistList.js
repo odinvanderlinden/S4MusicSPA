@@ -9,7 +9,9 @@ export default function PlaylistsComponent(props) {
 
     const [playListItems, setPlayListItems] = useContext(PlayListContext);
     const [openPopup, setopenPopup] = useState(false)
-    const [newPlayListName, setnewPlayListName] = useState("")
+    const [newPlayListName, setnewPlayListName] = useState("");
+    const [showError, setShowError] = useState("");
+    const error = "Fill in a valid playlist name"
     useEffect(() => {
         if (playListItems) {
             setPlayListItems(playListItems)
@@ -26,13 +28,17 @@ export default function PlaylistsComponent(props) {
     })
 
     function addPlayList(){
-        newPlayList(newPlayListName).then(res =>{
-            if(res.status === 200){
-                debugger
-                setopenPopup(false)
-                setPlayListItems([...playListItems, {id: res.data.id, name: res.data.name}])
-            }
-        })
+        if(newPlayListName){
+            newPlayList(newPlayListName).then(res =>{
+                if(res.status === 200){
+                    debugger
+                    setopenPopup(false)
+                    setPlayListItems([...playListItems, {id: res.data.id, name: res.data.name}])
+                }
+            })
+        }else{
+            setShowError(true)
+        }
     }
     return (
         <div className="playlistList">
@@ -44,6 +50,7 @@ export default function PlaylistsComponent(props) {
                 <div className="newPlayListPopup">
                     <p className="item">New PlayList</p>
                     <input className="item" value={newPlayListName} onChange={e => setnewPlayListName(e.target.value)}></input>
+                    <div className="error" hidden={!showError}>{error}</div>
                     <div className="item buttons">
                         <button className="item" onClick={() => addPlayList()}>add</button>
                         <button className="item" onClick={() => setopenPopup(false)}>cancel</button>
