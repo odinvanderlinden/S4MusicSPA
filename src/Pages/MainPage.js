@@ -16,11 +16,6 @@ function MainPage(props) {
                 setSongs(res.data)
             }
         })
-        getUsersPlaylists().then(res => {
-            if (res.status === 200) {
-                setPlayListContext(res.data)
-            }
-        })
     }, []);
     const [playListContext, setPlayListContext] = useContext(PlayListContext);
     const [songs, setSongs] = useState(null)

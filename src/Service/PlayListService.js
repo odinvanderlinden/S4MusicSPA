@@ -61,3 +61,18 @@ export async function newPlayList(name){
         return error.response
     })
 }
+
+export async function deletePlayListForUser(HATEOASLink){
+    return Axios.delete(HATEOASLink,
+    {
+        headers:{
+            Authorization: `Bearer ${getJWT()}`
+        },
+    }).then(res =>{
+        console.log(res)
+        return res
+    }).catch(error => {
+        console.log(error)
+        return error.response
+    })
+}
