@@ -28,6 +28,7 @@ function MainPage(props) {
                     <PlaylistsComponent/>
                 </div>
                 <div className="songsHolder">
+                    <div className="HomePageTitle">Home</div>
                     <SongList songs={songs} playLists={playListContext}/>
                 </div>
             </section>

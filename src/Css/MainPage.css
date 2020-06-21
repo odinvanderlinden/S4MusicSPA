@@ -25,3 +25,10 @@
     justify-content: center;
     align-content: center;
 }
+
+.HomePageTitle{
+    height: 30px;
+    padding-top: 10px;
+    width: 100%;
+    text-align: center;
+}
