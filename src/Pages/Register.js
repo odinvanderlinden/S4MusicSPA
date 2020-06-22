@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import '../Css/Login.css'
 import { registerUser } from '../Service/AuthService'
 import { login } from '../Service/AuthHelper'
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
 export default function Register() {
 
-
+    const history = useHistory()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
@@ -19,7 +19,7 @@ export default function Register() {
             registerUser(email, password, firstName, lastName).then(res => {
                 if (res.status === 200) {
                     login(res.data)
-                    window.location.reload(false);
+                    history.push("/")
                 }else if(res.status === 400){
                     setShowError(true)
                 }

@@ -20,7 +20,7 @@ export default function Login() {
         loginUser(email, password).then(res =>{
           if(res.status === 200){
             login(res.data)
-            window.location.reload(false);
+            history.push("/")
           }else if(res.status === 403){
             setError("Wrong credentials")
             setShowError(true)
